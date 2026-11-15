@@ -1,0 +1,18 @@
+from PIL import Image
+
+# Read the image
+img = Image.open("C:\\Users\\S\\Documents\\image.webp")
+
+# Display original image
+img.show()
+
+# Convert image to grayscale
+gray = img.convert("L")
+
+# Display grayscale image
+gray.show()
+
+# Save grayscale image
+gray.save("grayscale_image.png")
+
+print("Image converted to grayscale successfully") 

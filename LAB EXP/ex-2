@@ -1,22 +1,22 @@
-from PIL import Image, ImageFilter
-image_path = r"C:\Users\sruja\OneDrive\Desktop\lion.avif"
+import cv2
+# Read the image
+img = cv2.imread("image.jpg")
 
+# Check whether the image is loaded
+if img is None:
+    print("Image not found")
+else:
+    # Apply Gaussian Blur
+    blur = cv2.GaussianBlur(img, (15, 15), 0)
 
-img = Image.open(image_path)
+    # Display original image
+    cv2.imshow("Original Image", img)
 
+    # Display blurred image
+    cv2.imshow("Gaussian Blur Image", blur)
 
-img.show()
+    # Wait until a key is pressed
+    cv2.waitKey(0)
 
-
-blurred_img = img.filter(ImageFilter.GaussianBlur(radius=5))
-
-
-blurred_img.show()
-
-
-output_path = r"C:\Users\sruja\OneDrive\Desktop\lion_blurred.png"
-blurred_img.save(output_path)
-
-print("Original image:", image_path)
-print("Gaussian Blur applied successfully!")
-print("Blurred image saved at:", output_path)
+    # Close all windows
+    cv2.destroyAllWindows()
